@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MemberService } from 'src/Services/member.service';
 
 @Component({
   selector: 'app-member-form',
@@ -7,7 +9,11 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./member-form.component.css']
 })
 export class MemberFormComponent implements OnInit{
+  constructor(private MS:MemberService,private router:Router){
+
+  }
   form!:FormGroup
+
   ngOnInit(){
     this.form=new FormGroup({
         cin: new FormControl(null),
@@ -15,8 +21,14 @@ export class MemberFormComponent implements OnInit{
         type: new FormControl(null),
         createdDate:new FormControl(null)
     })
+
   }
   onSub():void{
-    console.log(this.form.value)
+    console.log(this.form.value);
+    this.MS.addMember(this.form.value).subscribe(()=>{
+      // redirection vers le path home
+
+      this.router.navigate([''])
+    });
   }
 }

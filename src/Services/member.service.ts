@@ -17,4 +17,8 @@ export class MemberService {
   {
     return this.http.get<any[]>("http://localhost:3000/member")
   }
+  addMember(member:any): Observable<void> {
+    return this.http.post<void>("http://localhost:3000/member", member);
+  }
+  
 }
