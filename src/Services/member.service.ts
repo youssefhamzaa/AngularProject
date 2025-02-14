@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Member } from 'src/Modeles/Member';
 
 // Decorateur qui permet d'indiquer que le service accepte d'etre injecté (utilisé) dans autre
 // service ou dans un composant
@@ -13,23 +14,23 @@ export class MemberService {
 
 
   // fonction qui envoie une requete en mode GET vers le backend
-  GetAllMembers():Observable<any[]>
+  GetAllMembers():Observable<Member[]>
   {
-    return this.http.get<any[]>("http://localhost:3000/member")
+    return this.http.get<Member[]>("http://localhost:3000/member")
   }
-  addMember(member:any): Observable<void> {
+  addMember(member:Member): Observable<void> {
     return this.http.post<void>("http://localhost:3000/member", member);
   }
   deleteMemberById(memberId: string): Observable<void> {
     return this.http.delete<void>(`http://localhost:3000/member/${memberId}`);
   }
-  getMemberByID(memberId:string):Observable<any>
+  getMemberByID(memberId:string):Observable<Member>
   {
-    return this.http.get<any>(`http://localhost:3000/member/${memberId}`)
+    return this.http.get<Member>(`http://localhost:3000/member/${memberId}`)
   }
-  updateMember(memberId:string,member:any):Observable<any>
+  updateMember(memberId:string,member:Member):Observable<void>
   {
-    return this.http.put<any>(`http://localhost:3000/member/${memberId}`, member)
+    return this.http.put<void>(`http://localhost:3000/member/${memberId}`, member)
   }
   
 }
