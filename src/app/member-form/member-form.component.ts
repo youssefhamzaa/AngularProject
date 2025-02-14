@@ -54,10 +54,17 @@ export class MemberFormComponent implements OnInit{
   }
   onSub():void{
     console.log(this.form.value);
+    const idCourant=this.activatedRoute.snapshot.params['id']
+    if(idCourant){
+      this.MS.updateMember(idCourant,this.form.value).subscribe(()=>{
+        this.router.navigate([''])
+      })
+    }else{
     this.MS.addMember(this.form.value).subscribe(()=>{
       // redirection vers le path home
 
       this.router.navigate([''])
     });
+  }
   }
 }

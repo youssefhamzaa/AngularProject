@@ -27,5 +27,9 @@ export class MemberService {
   {
     return this.http.get<any>(`http://localhost:3000/member/${memberId}`)
   }
+  updateMember(memberId:string,member:any):Observable<any>
+  {
+    return this.http.put<any>(`http://localhost:3000/member/${memberId}`, member)
+  }
   
 }
