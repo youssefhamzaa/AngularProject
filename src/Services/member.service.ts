@@ -20,5 +20,12 @@ export class MemberService {
   addMember(member:any): Observable<void> {
     return this.http.post<void>("http://localhost:3000/member", member);
   }
+  deleteMemberById(memberId: string): Observable<void> {
+    return this.http.delete<void>(`http://localhost:3000/member/${memberId}`);
+  }
+  getMemberByID(memberId:string):Observable<any>
+  {
+    return this.http.get<any>(`http://localhost:3000/member/${memberId}`)
+  }
   
 }

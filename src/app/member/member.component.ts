@@ -19,4 +19,14 @@ export class MemberComponent implements OnInit{
     })
   }
   displayedColumns: string[] = ['id', 'cin', 'name', 'type', 'createdDate','icon'];
+  delete(memberId: string): void {
+    this.MS.deleteMemberById(memberId).subscribe(()=>{
+      
+      this.MS.GetAllMembers().subscribe((a)=>{
+        this.dataSource=a
+      })
+       
+    });
+  }
+  
 }

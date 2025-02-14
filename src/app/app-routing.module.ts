@@ -10,8 +10,13 @@ const routes: Routes = [
   
   },
   {path:'',
-    pathMatch:'full',//verification stricte il faut avoir /create ni moins ni plus 
+    pathMatch:'full', 
     component:MemberComponent
+  
+  },
+  {path:'edit/:id',
+    pathMatch:'full', 
+    component:MemberFormComponent
   
   }
 ];
