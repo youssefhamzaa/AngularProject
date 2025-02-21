@@ -24,6 +24,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolComponent } from './tool/tool.component';
 import { EventComponent } from './event/event.component';
 import { ArticleComponent } from './article/article.component';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +53,9 @@ import { ArticleComponent } from './article/article.component';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
