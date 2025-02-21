@@ -12,7 +12,7 @@ import { EventService } from 'src/Services/event.service';
 })
 export class EventComponent implements OnInit,AfterViewInit{
   constructor(private ES:EventService){}
-  dataSource!:MatTableDataSource<Evt>
+  dataSource: MatTableDataSource<Evt>= new MatTableDataSource<Evt>(); 
   displayedColumns: string[] = ['id', 'title', 'dateDebut', 'dateFin', 'lieu'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -27,7 +27,7 @@ export class EventComponent implements OnInit,AfterViewInit{
   }
   fetchData():void{
       this.ES.GetAllEvent().subscribe((data)=>{
-        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.data = data;
       })
   }
   applyFilter(event: Event) {
