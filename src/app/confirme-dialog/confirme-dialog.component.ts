@@ -7,6 +7,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./confirme-dialog.component.css']
 })
 export class ConfirmeDialogComponent {
+  // forcage de type => boite de dialogue
   constructor(public dialogRef: MatDialogRef<ConfirmeDialogComponent>) { }
 
 }

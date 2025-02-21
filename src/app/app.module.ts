@@ -14,13 +14,27 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmeDialogComponent } from './confirme-dialog/confirme-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { TemplateComponent } from './template/template.component';
 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ToolComponent } from './tool/tool.component';
+import { EventComponent } from './event/event.component';
+import { ArticleComponent } from './article/article.component';
 @NgModule({
   declarations: [
     AppComponent,
     MemberComponent,
     MemberFormComponent,
-    ConfirmeDialogComponent
+    ConfirmeDialogComponent,
+    TemplateComponent,
+    DashboardComponent,
+    ToolComponent,
+    EventComponent,
+    ArticleComponent
   ],
   imports: [
     FormsModule,
@@ -33,7 +47,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
