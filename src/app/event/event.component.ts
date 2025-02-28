@@ -6,6 +6,7 @@ import { Evt } from 'src/Modeles/Evt';
 import { EventService } from 'src/Services/event.service';
 import { ModalEvtComponent } from '../modal-evt/modal-evt.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-event',
@@ -47,6 +48,10 @@ export class EventComponent implements OnInit,AfterViewInit{
       height: '600px',
       width: '500px',
     });
+    dialogRef.afterClosed().subscribe(
+      data => console.log("Dialog output:", data)
+  );
+
   }
 
 
