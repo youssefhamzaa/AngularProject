@@ -4,6 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Evt } from 'src/Modeles/Evt';
 import { EventService } from 'src/Services/event.service';
+import { ModalEvtComponent } from '../modal-evt/modal-evt.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-event',
@@ -11,8 +13,8 @@ import { EventService } from 'src/Services/event.service';
   styleUrls: ['./event.component.css']
 })
 export class EventComponent implements OnInit,AfterViewInit{
-  constructor(private ES:EventService){}
-  dataSource: MatTableDataSource<Evt>= new MatTableDataSource<Evt>(); 
+  constructor(private ES:EventService, private dialog:MatDialog){}
+  dataSource: MatTableDataSource<Evt>= new MatTableDataSource<Evt>();
   displayedColumns: string[] = ['id', 'title', 'dateDebut', 'dateFin', 'lieu'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -38,4 +40,16 @@ export class EventComponent implements OnInit,AfterViewInit{
       this.dataSource.paginator.firstPage();
     }
   }
+
+
+  open():void{
+    let dialogRef = this.dialog.open(ModalEvtComponent, {
+      height: '600px',
+      width: '500px',
+    });
+  }
+
+
+
+
 }
